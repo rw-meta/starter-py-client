@@ -8,7 +8,7 @@ setuptools.setup(
     summary='Client for Starter Server API',
     description_file='README.rst',
     license='MIT',
-    home_page='https://github.com/rw-meta/starter_api-py-client',
+    home_page='https://github.com/rw-meta/starter-py-client',
     setup_requires=['requests'],
     packages=setuptools.find_packages(),
     pbr=True,
