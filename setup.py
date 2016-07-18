@@ -1,15 +1,21 @@
+#!/usr/bin/env python
+
 import setuptools
 
+from starter_api import info
+
 setuptools.setup(
-    name='starter_api',
-    version='0.0.1',
+    name=info.__package_name__,
+    version=info.__version__,
     author='Artur Geraschenko',
     author_email='arturgspb@gmail.com',
-    summary='Client for Starter Server API',
+    description='Client for Starter Server API',
     description_file='README.rst',
     license='MIT',
-    home_page='https://github.com/rw-meta/starter-py-client',
+    url='https://github.com/rw-meta/starter-py-client',
     setup_requires=['requests'],
-    packages=setuptools.find_packages(),
-    pbr=True,
+    packages=["starter_api"],
+    package_data={'': ['LICENSE', 'NOTICE']},
+    package_dir={'starter_api': 'starter_api'},
+    include_package_data=True,
 )
