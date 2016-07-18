@@ -5,7 +5,7 @@ Starter Server API Client
 
 Install
 =======
-pip install starter-api
+pip install starter_api
 
 
 Usage
