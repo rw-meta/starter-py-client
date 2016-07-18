@@ -17,7 +17,7 @@ Usage
     starter_api.init("http://HOST:PORT")
 
     # simple build and submit task to server
-    starter_api.build_submit("YOUR_SERVICE", {"myparam": 1})
+    res = starter_api.build_submit("YOUR_SERVICE", {"myparam": 1})
     print('res = ' + str(res))
 
     # build task object into variable and submit to server
