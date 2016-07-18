@@ -33,7 +33,7 @@ setuptools.setup(
 
     setup_requires=['requests'],
     packages=["starter_api"],
-    package_data={'': ['LICENSE', 'NOTICE']},
+    package_data={'': ['LICENSE']},
     package_dir={'starter_api': 'starter_api'},
     include_package_data=True,
 )
