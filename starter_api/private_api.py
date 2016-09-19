@@ -18,7 +18,7 @@ class PrivateApi:
         :type task: Task
         """
         if self.api_url == 'http://STUB_URL':
-            logging.info(u'DEV MODE Задача условно поставлена')
+            logging.info(u'STARTER CLIENT DEV MODE Задача условно поставлена')
             return
 
         url = self.api_url + '/services/' + task.serviceId + '/tasks'
