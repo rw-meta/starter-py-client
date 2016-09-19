@@ -1,5 +1,6 @@
 # coding=utf-8
 import json
+import logging
 from time import sleep
 
 import requests
@@ -16,6 +17,10 @@ class PrivateApi:
         """
         :type task: Task
         """
+        if self.api_url == 'http://STUB_URL':
+            logging.info(u'DEV MODE Задача условно поставлена')
+            return
+
         url = self.api_url + '/services/' + task.serviceId + '/tasks'
         last_e = None
         for idx in range(self.max_retries):
