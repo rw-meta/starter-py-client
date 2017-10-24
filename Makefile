@@ -1,8 +1,15 @@
+VERSION=$(shell python starter_api/info.py)
+
 init:
-	pip install -r requirements.txt
+	pip3 install -r requirements.txt
 
 publish:
-	python setup.py register
-	python setup.py sdist upload
-	python setup.py bdist_wheel --universal upload
+	echo $(VERSION)
+
+	python3 setup.py sdist bdist_wheel
+	twine upload dist/*
+
+	$(shell git tag $(VERSION))
+	$(shell git push origin $(VERSION))
+
 	rm -fr build dist .egg requests.egg-info
