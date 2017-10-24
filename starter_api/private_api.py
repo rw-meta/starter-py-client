@@ -11,7 +11,7 @@ class PrivateApi:
 
     def __init__(self, api_url):
         self.api_url = api_url
-        self.max_retries = 10
+        self.max_retries = 30
 
     def submit(self, task):
         """
@@ -25,15 +25,18 @@ class PrivateApi:
         last_e = None
         for idx in range(self.max_retries):
             try:
-                return requests.post(
+                resp = requests.post(
                     url=url,
                     data=json.dumps(task.__dict__),
                     headers=self.headers,
                     timeout=3
                 )
+                try:
+                    return json.loads(resp.text)
+                except:
+                    raise IOError("Starter response read error: " + resp.text)
             except requests.exceptions.ConnectionError as e:
                 # При ошибках подключения пытаемся еще раз
                 last_e = e
-                sleep(1)
+                sleep(3)
         raise last_e
-

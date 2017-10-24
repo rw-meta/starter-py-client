@@ -22,7 +22,7 @@ def build_submit(service_id, data=None):
     Build and submit task to server
     :param service_id: string
     :param data: dict
-    :return:
+    :return: dict
     """
     return submit(
         build_task(service_id, data)
