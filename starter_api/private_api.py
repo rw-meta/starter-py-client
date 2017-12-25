@@ -29,13 +29,13 @@ class PrivateApi:
                     url=url,
                     data=json.dumps(task.__dict__),
                     headers=self.headers,
-                    timeout=3
+                    timeout=15
                 )
                 try:
                     return json.loads(resp.text)
                 except:
                     raise IOError("Starter response read error: " + resp.text)
-            except requests.exceptions.ConnectionError as e:
+            except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
                 # При ошибках подключения пытаемся еще раз
                 last_e = e
                 sleep(3)
